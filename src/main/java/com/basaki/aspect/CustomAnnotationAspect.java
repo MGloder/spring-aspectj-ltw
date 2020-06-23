@@ -9,6 +9,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.Resource;
+
 /**
  * {@code CustomAnnotationAspect} intercepts any private method execution if a
  * method is tagged with {@code com.basaki.annotation.CustomAnnotation}
@@ -24,6 +26,7 @@ public class CustomAnnotationAspect {
     private static final Logger
             log = LoggerFactory.getLogger(CustomAnnotationAspect.class);
 
+    @Resource
     private ExampleService exampleService;
 
     @Around("@annotation(anno) && execution(* *(..))")
@@ -32,6 +35,7 @@ public class CustomAnnotationAspect {
         // save
         // proceesd
         // save
+        log.info(String.valueOf(exampleService == null));
         log.info(
                 "Entering CustomAnnotationAspect.inspectMethod() in class "
                         + jp.getSignature().getDeclaringTypeName()
