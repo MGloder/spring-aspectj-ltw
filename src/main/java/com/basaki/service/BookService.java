@@ -21,11 +21,11 @@ public class BookService {
     @CustomAnnotation(description = "Validates book request.")
     public void exampleBookServiceMethod() {
         exampleBookServiceMethod2();
-        log.info("Validating book request!");
+        log.info("Validating book request! --- 1");
     }
 
     @CustomAnnotation(description = "Validates book request.")
     public void exampleBookServiceMethod2() {
-        log.info("Validating book request!");
+        log.info("Validating book request! --- 2");
     }
 }
