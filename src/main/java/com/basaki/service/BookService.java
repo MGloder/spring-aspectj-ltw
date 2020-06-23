@@ -19,8 +19,13 @@ public class BookService {
             log = LoggerFactory.getLogger(BookService.class);
 
     @CustomAnnotation(description = "Validates book request.")
-    public void validateRequest() {
+    public void exampleBookServiceMethod() {
+        exampleBookServiceMethod2();
         log.info("Validating book request!");
+    }
 
+    @CustomAnnotation(description = "Validates book request.")
+    public void exampleBookServiceMethod2() {
+        log.info("Validating book request!");
     }
 }
