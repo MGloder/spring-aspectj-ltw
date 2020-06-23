@@ -2,8 +2,8 @@ package com.basaki.aspect;
 
 import com.basaki.annotation.CustomAnnotation;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,7 +22,7 @@ public class CustomAnnotationAspect {
     private static final Logger
             log = LoggerFactory.getLogger(CustomAnnotationAspect.class);
 
-    @Before("@annotation(anno) && execution(* *(..))")
+    @Around("@annotation(anno) && execution(* *(..))")
     public void inspectMethod(JoinPoint jp, CustomAnnotation anno) {
         log.info(
                 "Entering CustomAnnotationAspect.inspectMethod() in class "

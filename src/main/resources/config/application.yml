@@ -11,21 +11,21 @@ info:
 
 #Exposes Spring actuator endpoints
 management:
-  health:
-    diskspace:
-      enabled: true
-    db:
-      enabled: true
-    defaults:
-      enabled: true
-    details:
-      enabled: true
-    application:
-      enabled: true
-  endpoint:
-    health:
-      enabled: true
-      show-details: true
+#  health:
+#    diskspace:
+#      enabled: true
+#    db:
+#      enabled: false
+#    defaults:
+#      enabled: true
+#    details:
+#      enabled: false
+#    application:
+#      enabled: true
+#  endpoint:
+#    health:
+#      enabled: true
+#      show-details: true
   endpoints:
     web:
       base-path: /
@@ -33,9 +33,9 @@ management:
 
 
 
-#logging:
-#  level:
-#    org.springframework: DEBUG
+logging:
+  level:
+    org.springframework: DEBUG
 
 
 

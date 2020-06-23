@@ -1,10 +1,11 @@
 package com.basaki.controller;
 
-import com.basaki.data.entity.Book;
 import com.basaki.model.BookRequest;
 import com.basaki.service.BookService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+
+import java.awt.print.Book;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,18 +35,9 @@ public class BookController {
         this.service = service;
     }
 
-    @ApiOperation(value = "Creates a book.", response = Book.class)
-    @RequestMapping(method = RequestMethod.POST, value = "/books")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Book create(@RequestBody BookRequest request) {
-        return service.create(request);
+    @RequestMapping(method = RequestMethod.GET, value = "/books")
+    public void create() {
+        service.validateRequest();
     }
 
-    @ApiOperation(value = "Retrieves a book.", notes = "Requires book identifier",
-            response = Book.class)
-    @RequestMapping(method = RequestMethod.GET, produces = {
-            MediaType.APPLICATION_JSON_VALUE}, value = "/books/{id}")
-    public Book read(@PathVariable("id") UUID id) {
-        return service.read(id);
-    }
 }
